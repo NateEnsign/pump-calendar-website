@@ -1,0 +1,67 @@
+* {
+    font-family: monospace;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: #7a85a1;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+
+h1 {
+    padding: 40px;
+    font-size: 40px;
+    color: #2e2423;
+}
+
+h2 {
+    color: #c3ada8;
+    text-align: center;
+    font-size: 60px;
+    padding-top: 120px;
+    padding-left: 120px;
+    padding-right: 120px;
+    padding-bottom: 20px;
+}
+
+#button-box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+}
+
+#button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 60px;
+    width: 250px;
+    background-color: #626a92;
+    font-size: 23px;
+}
+
+.create-btn {
+    text-align: center;
+}
+
+main {
+    height: 100%;
+}
+
+.hero-image {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("https://media.istockphoto.com/id/1343527822/photo/back-view-of-young-handsome-topless-bodybuilder-works-out-pulling-down-on-cable-machine-in-gym.jpg?s=612x612&w=0&k=20&c=fQXTYa02Be_WI4ohxR-dZhb0egP0v9a21UJstjIcVXA=");
+    width: 100vw;
+    height: 100vh;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+}
+
+
