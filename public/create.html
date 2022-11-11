@@ -4,13 +4,49 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Create Workouts</title>
     <link rel="stylesheet" href="create.css">
 </head>
 <body>
-    
+    <main>
+        <header>
+            <h1>Pump Calendar</h1>    
+                <nav class="top-nav">      
+                    <a href="home.html">Home</a>
+                    <a href="">My Workouts</a>
+                    <a href="">Login/Create Account</a>   
+                </nav>        
+        </header>
+
+        <h2>Select Category:</h2>
+
+        <div class="btn-group">
+            <button id="chest-btn">Chest</button>
+            <button id="legs-btn">Legs</button>
+            <button id="back-btn">Back</button>
+            <button id="arms-btn">Arms</button>
+            <button id="core-btn">Core</button>
+            <button id="cardio-btn">Cardio</button>
+          </div>
+
+          <form id="form">
+            <input type="text" id="new-workout" placeholder="Enter Name of Workout">
+
+            <select name="workout-category" id="category">
+              <option value="" disabled selected>Select Category</option>
+              <option value="chest">Chest</option>
+              <option value="legs">Legs</option>
+              <option value="back">Back</option>
+              <option value="arms">Arms</option>
+              <option value="core">Core</option>
+              <option value="cardio">Cardio</option>
+            </select>
+
+            <button id="submit-btn">Submit</button>
+          </form>
+
+
+    </main>
+    <script> src="create.js"</script>
 </body>
 </html>
-
-
-<h1>hey what up mutha fuckas!!</h1>
