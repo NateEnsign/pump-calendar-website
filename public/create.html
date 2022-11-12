@@ -8,15 +8,15 @@
     <link rel="stylesheet" href="create.css">
 </head>
 <body>
+    <header>
+        <h1>Pump Calendar</h1>    
+            <nav class="top-nav">      
+                <a href="home.html">Home</a>
+                <a href="">My Workouts</a>
+                <a href="">Login/Create Account</a>   
+            </nav>        
+    </header>
     <main>
-        <header>
-            <h1>Pump Calendar</h1>    
-                <nav class="top-nav">      
-                    <a href="home.html">Home</a>
-                    <a href="">My Workouts</a>
-                    <a href="">Login/Create Account</a>   
-                </nav>        
-        </header>
 
         <h2>Select Category:</h2>
 
@@ -27,24 +27,41 @@
             <button id="arms-btn">Arms</button>
             <button id="core-btn">Core</button>
             <button id="cardio-btn">Cardio</button>
-          </div>
+        </div>
 
-          <form id="form">
-            <input type="text" id="new-workout" placeholder="Enter Name of Workout">
-
-            <select name="workout-category" id="category">
-              <option value="" disabled selected>Select Category</option>
-              <option value="chest">Chest</option>
-              <option value="legs">Legs</option>
-              <option value="back">Back</option>
-              <option value="arms">Arms</option>
-              <option value="core">Core</option>
-              <option value="cardio">Cardio</option>
-            </select>
-
-            <button id="submit-btn">Submit</button>
-          </form>
-
+        <div class="container">
+            <form id="form">
+                <ul>
+                    <li>
+                        <h3>Add New Workout!</h3>
+                    </li>
+                    <li></li>
+                        <label for="new-workout">Workout Name:</label>
+                    </li>
+                    <li></li>
+                        <input type="text" id="new-workout" placeholder="Enter Name of Workout">
+                    </li>
+                    <li>
+                        <label for="category">Workout Category:</label>
+                    </li>
+                    <li>
+                        <select name="workout-category" id="category">
+                    
+                        <option value="" disabled selected>Select Category</option>
+                        <option value="chest">Chest</option>
+                        <option value="legs">Legs</option>
+                        <option value="back">Back</option>
+                        <option value="arms">Arms</option>
+                        <option value="core">Core</option>
+                        <option value="cardio">Cardio</option>
+                        </select>
+                    </li>
+                    <li>
+                        <button id="submit-btn">Submit</button>
+                    </li>
+                </ul>
+            </form>
+        </div>
 
     </main>
     <script> src="create.js"</script>
