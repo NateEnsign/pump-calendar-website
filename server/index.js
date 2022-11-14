@@ -2,6 +2,7 @@ const express = require('express')
 require('dotenv').config()
 const cors = require('cors')
 const PORT = process.env.PORT
+const path = require('path')
 
 const app = express()
 
@@ -10,7 +11,12 @@ app.use(express.json())
 
 const {seed, addWorkout} = require('./controller')
 
-app.get('/seed', seed)
+
+
+
+
+
+app.post('/seed', seed)
 app.post('/addworkout', addWorkout)
 
 

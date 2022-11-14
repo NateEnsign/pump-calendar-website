@@ -2,27 +2,16 @@ const Sequelize = require('sequelize')
 require('dotenv').config()
 const CONNECTION_STRING = process.env.CONNECTION_STRING
 
-const sequelize = new Sequelize(CONNECTION_STRING, {dialect: 'postgres',
-dialectOptions: {
-    ssl: {
-        rejectUnauthorized: false
+const sequelize = new Sequelize(CONNECTION_STRING, {
+    dialect: 'postgres',
+    dialectOptions: {
+        ssl: {
+            rejectUnauthorized: false
+        }
     }
-}
 })
 
 module.exports = {
-
-    addWorkout: (req, res) => {
-        const {
-            name,
-            categoryId
-        } = req.bodyObj
-
-        sequelize.query(`
-            INSERT INTO workouts (name, category)
-            VALUES ('${name}', ${categoryId})
-        `)
-    },
 
     seed: (req, res) => {
         sequelize.query(`
@@ -71,6 +60,23 @@ module.exports = {
         ('Friday'),
         ('Saturday'),
         ('Sunday');
+        `)
+        .then (() => {
+            console.log('Database seeded')
+            res.sendStatus(200)
+        })
+        .catch(err => console.log('Error seeding database', err))
+    },
+
+    addWorkout: (req, res) => {
+        const {
+            name,
+            categoryId
+        } = req.bodyObj
+
+        sequelize.query(`
+            INSERT INTO workouts (name, category)
+            VALUES ('${name}', ${categoryId})
         `)
     }
 }
