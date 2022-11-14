@@ -5,7 +5,7 @@ const armsBtn = document.getElementById("arms-btn")
 const coreBtn = document.getElementById("core-btn")
 const cardioBtn = document.getElementById("cardio-btn")
 const form = document.getElementById("form")
-const newWorkout = document.getElementById("new-workout")
+const enterWorkout = document.getElementById("enter-workout")
 const workoutCategory = document.getElementById("workout-category")
 const submitBtn = document.getElementById("submit-btn")
 const workoutDisplay = document.getElementById("workout-display")
@@ -13,7 +13,7 @@ const workoutDisplay = document.getElementById("workout-display")
 function addWorkout(event) {
     event.preventDefault()
 
-    if (newWorkout.value < 1) {
+    if (enterWorkout.value < 1) {
         alert ('You must enter a name for new workout')
         return
     }

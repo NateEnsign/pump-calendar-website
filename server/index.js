@@ -12,7 +12,21 @@ app.use(express.json())
 const {seed, addWorkout} = require('./controller')
 
 
-
+app.get('/', (req, res) => {
+    res.sendFile(path.join(__dirname, "../public/home.html"))
+})
+app.get('/home', (req, res) => {
+    res.sendFile(path.join(__dirname, "../public/home.css"))
+})
+app.get('/createjs', (req, res) => {
+    res.sendFile(path.join(__dirname, "../public/create.js"))
+})
+app.get('/createhtml', (req, res) => {
+    res.sendFile(path.join(__dirname, "../public/create.html"))
+})
+app.get('/createcss', (req, res) => {
+    res.sendFile(path.join(__dirname, "../public/create.css"))
+})
 
 
 
