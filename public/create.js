@@ -10,7 +10,7 @@ const workoutCategory = document.getElementById("workout-category")
 const submitBtn = document.getElementById("submit-btn")
 const workoutDisplay = document.getElementById("workout-display")
 
-function addWorkout(event) {
+function submitHandler(event) {
     event.preventDefault()
 
     if (enterWorkout.value < 1) {
@@ -19,17 +19,17 @@ function addWorkout(event) {
     }
 
     let bodyObj = {
-        name: newWorkout.value,
+        name: enterWorkout.value,
         categoryId: +workoutCategory.value
     }
 
     axios.post('http://localhost:4031/addworkout', bodyObj)
-    .then((response) => {
-        newWorkout.value = ''
+    .then(() => {
+        enterWorkout.value = ''
         workoutCategory.value = 1
-        alert(bodyObj.name + ' has been added to ' + bodyObj.category + ' workouts!')
+        alert(bodyObj.name + ' has been added workouts!')
     })
-    .catch((response) => {
+    .catch(() => {
         console.log('error: something went wrong adding workout')
     })
 }
@@ -77,5 +77,5 @@ backBtn.addEventListener('click', getBackWorkouts)
 armsBtn.addEventListener('click', getArmsWorkouts)
 coreBtn.addEventListener('click', getCoreWorkouts)
 cardioBtn.addEventListener('click', getCardioWorkouts)
-submitBtn.addEventListener('submit', addWorkout)
+submitBtn.addEventListener('submit', submitHandler)
 

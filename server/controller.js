@@ -75,9 +75,13 @@ module.exports = {
         } = req.bodyObj
 
         sequelize.query(`
-            INSERT INTO workouts (name, category)
+            INSERT INTO workouts (name, category_id)
             VALUES ('${name}', ${categoryId})
         `)
+        .then((dbRes) => {
+            res.status(200).send(dbRes[0])
+        })
+        .catch(err => console.log('Error submitting adventure', err))
     }
 }
 
