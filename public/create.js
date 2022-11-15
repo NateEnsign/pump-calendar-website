@@ -5,29 +5,29 @@ const armsBtn = document.getElementById("arms-btn")
 const coreBtn = document.getElementById("core-btn")
 const cardioBtn = document.getElementById("cardio-btn")
 const theForm = document.getElementById("submit-form")
-const enterWorkout = document.getElementById("enter-workout")
-const workoutCategory = document.getElementById("workout-category")
+const workoutName = document.getElementById("enter-workout")
+const workoutCategory = document.getElementById("category")
 const submitBtn = document.getElementById("submit-btn")
 const workoutDisplay = document.getElementById("workout-display")
 
 function addWorkout(event) {
     event.preventDefault()
 
-    if (enterWorkout.value < 1) {
+    if (workoutName.value < 1) {
         alert ('You must enter a name for new workout')
         return
     }
 
     let bodyObj = {
-        name: enterWorkout.value,
+        workoutName: workoutName.value,
         categoryId: +workoutCategory.value
     }
 
     axios.post('http://localhost:4031/addworkout', bodyObj)
     .then(() => {
-        enterWorkout.value = ''
+        workoutName.value = ''
         workoutCategory.value = 1
-        alert(bodyObj.name + ' has been added workouts!')
+        alert(bodyObj.workoutName + ' has been added workouts!')
     })
     .catch(() => {
         console.log('error: something went wrong adding workout')

@@ -68,17 +68,17 @@ module.exports = {
         .catch(err => console.log('Error seeding database', err))
     },
 
-    
+
 
     addWorkout: (req, res) => {
         const {
-            name,
+            workoutName,
             categoryId
         } = req.bodyObj
 
         sequelize.query(`
             INSERT INTO workouts (name, category_id)
-            VALUES ('${name}', ${categoryId})
+            VALUES ('${workoutName}', ${categoryId})
         `)
         .then((dbRes) => {
             res.status(200).send(dbRes[0])
