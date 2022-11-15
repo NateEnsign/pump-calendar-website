@@ -4,13 +4,13 @@ const backBtn = document.getElementById("back-btn")
 const armsBtn = document.getElementById("arms-btn")
 const coreBtn = document.getElementById("core-btn")
 const cardioBtn = document.getElementById("cardio-btn")
-const form = document.getElementById("form")
+const theForm = document.getElementById("submit-form")
 const enterWorkout = document.getElementById("enter-workout")
 const workoutCategory = document.getElementById("workout-category")
 const submitBtn = document.getElementById("submit-btn")
 const workoutDisplay = document.getElementById("workout-display")
 
-function submitHandler(event) {
+function addWorkout(event) {
     event.preventDefault()
 
     if (enterWorkout.value < 1) {
@@ -77,5 +77,5 @@ backBtn.addEventListener('click', getBackWorkouts)
 armsBtn.addEventListener('click', getArmsWorkouts)
 coreBtn.addEventListener('click', getCoreWorkouts)
 cardioBtn.addEventListener('click', getCardioWorkouts)
-submitBtn.addEventListener('submit', submitHandler)
+theForm.addEventListener('submit', addWorkout)
 
