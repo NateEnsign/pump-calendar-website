@@ -31,7 +31,8 @@ app.get('/createcss', (req, res) => {
 
 
 app.post('/seed', seed)
-app.post('/addworkout', addWorkout)
+app.post('/workouts', addWorkout)
+// app.get('/chestworkouts', getChestWorkouts)
 
 
 app.listen(PORT, () => {console.log('listening on port' + PORT)})

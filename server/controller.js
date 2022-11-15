@@ -17,18 +17,13 @@ module.exports = {
         sequelize.query(`
         DROP TABLE IF EXISTS weekday_workouts;
         DROP TABLE IF EXISTS workouts;
-        DROP TABLE IF EXISTS category;
         DROP TABLE IF EXISTS weekday;
 
-        CREATE TABLE category (
-            id SERIAL PRIMARY KEY,
-            name VARCHAR NOT NULL UNIQUE
-        );
 
         CREATE TABLE workouts (
             id SERIAL PRIMARY KEY,
             name VARCHAR NOT NULL,
-            category INT REFERENCES category(id)
+            category VARCHAR NOT NULL
         );
 
         CREATE TABLE weekday (
@@ -41,15 +36,6 @@ module.exports = {
             weekday_id INT REFERENCES weekday(id),
             workouts_id INT REFERENCES workouts(id)
         );
-
-        INSERT INTO category (name)
-        VALUES
-        ('Chest'),
-        ('Legs'),
-        ('Back'),
-        ('Arms'),
-        ('Core'),
-        ('Cardio');
 
         INSERT INTO weekday (name)
         VALUES
@@ -70,21 +56,31 @@ module.exports = {
 
 
 
+
     addWorkout: (req, res) => {
+        console.log(req.body)
         const {
             workoutName,
-            categoryId
-        } = req.bodyObj
+            workoutCategory
+        } = req.body
 
         sequelize.query(`
-            INSERT INTO workouts (name, category_id)
-            VALUES ('${workoutName}', ${categoryId})
+            INSERT INTO workouts (name, category)
+            VALUES ('${workoutName}', '${workoutCategory}');
         `)
         .then((dbRes) => {
             res.status(200).send(dbRes[0])
         })
-        .catch(err => console.log('Error submitting adventure', err))
-    }
+        .catch(err => console.log('Error submitting workout', err))
+    },
+
+//     getChestWorkouts: (req, res) => {
+//         sequelize.query(`
+//             SELECT name FROM workouts WHERE category = 'Chest';
+//         `)
+//     }
+
+
 }
 
 

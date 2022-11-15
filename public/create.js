@@ -5,8 +5,8 @@ const armsBtn = document.getElementById("arms-btn")
 const coreBtn = document.getElementById("core-btn")
 const cardioBtn = document.getElementById("cardio-btn")
 const theForm = document.getElementById("submit-form")
-const workoutName = document.getElementById("enter-workout")
-const workoutCategory = document.getElementById("category")
+const workoutName = document.getElementById("workout-name")
+const workoutCategory = document.getElementById("workout-category")
 const submitBtn = document.getElementById("submit-btn")
 const workoutDisplay = document.getElementById("workout-display")
 
@@ -20,34 +20,20 @@ function addWorkout(event) {
 
     let bodyObj = {
         workoutName: workoutName.value,
-        categoryId: +workoutCategory.value
+        workoutCategory: workoutCategory.value
     }
 
-    axios.post('http://localhost:4031/addworkout', bodyObj)
+    axios.post('/workouts', bodyObj)
     .then(() => {
-        workoutName.value = ''
-        workoutCategory.value = 1
-        alert(bodyObj.workoutName + ' has been added workouts!')
+        alert(bodyObj.workoutName + ' has been added to workouts!')
     })
-    .catch(() => {
-        console.log('error: something went wrong adding workout')
+    .catch((error) => {
+        console.log(error)
     })
+    workoutName.value= ''
+    workoutCategory.value= ''
 }
 
-// function getChestWorkouts() {
-//     axios.get('')
-//     .then((response) => {
-//         let chestArray = response.data
-
-//         for (let i = 0; i < chestArray.length; i++){
-//             let chest = chestArray[i]
-//             let chestContainerElement = document.createElement('div')
-//             let chestWorkoutNameElement = document.createElement('span')
-
-            
-//         }
-//     })
-// }
 
 // function getLegsWorkouts() {
 
