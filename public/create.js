@@ -71,11 +71,11 @@ function addWorkout(event) {
 
 
 
-chestBtn.addEventListener('click', getChestWorkouts)
-legsBtn.addEventListener('click', getLegsWorkouts)
-backBtn.addEventListener('click', getBackWorkouts)
-armsBtn.addEventListener('click', getArmsWorkouts)
-coreBtn.addEventListener('click', getCoreWorkouts)
-cardioBtn.addEventListener('click', getCardioWorkouts)
+// chestBtn.addEventListener('click', getChestWorkouts)
+// legsBtn.addEventListener('click', getLegsWorkouts)
+// backBtn.addEventListener('click', getBackWorkouts)
+// armsBtn.addEventListener('click', getArmsWorkouts)
+// coreBtn.addEventListener('click', getCoreWorkouts)
+// cardioBtn.addEventListener('click', getCardioWorkouts)
 theForm.addEventListener('submit', addWorkout)
 
