@@ -57,11 +57,11 @@ h1 {
     color: #c3ada8;
     padding: 10px 24px;
     cursor: pointer;
-    width: 20%;
-    display: block;
+    width: 15%;
+    display:inline-block;
     height: 80px;
     font-size: 25px;
-    margin-left: 5px;
+    margin-left: 1%;
   }
   
   .btn-group button:not(:last-child) {
@@ -112,6 +112,20 @@ select {
 
 #submit-btn:hover {
     background-color: #914c3e;
+}
+
+#workout-list {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.workout-card {
+  display: flexbox;
+  flex-direction: row;
+  border: 3px solid black;
+  margin: 10px;
+
 }
 
 

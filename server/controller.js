@@ -76,7 +76,7 @@ module.exports = {
 
     getChestWorkouts: (req, res) => {
         sequelize.query(`
-            SELECT name FROM workouts WHERE category = 'chest';
+            SELECT name,id FROM workouts WHERE category = 'chest';
         `)
         .then((dbRes) => {
             res.status(200).send(dbRes[0])
@@ -144,6 +144,21 @@ module.exports = {
         .catch((err) => {
             console.log(err)
         })
+    },
+
+    deleteChestWorkout: (req, res) => {
+        const {id} = req.params
+        sequelize.query (`
+            DELETE FROM workouts
+            WHERE id = ${id}
+        `)
+        .then((dbRes) => {
+            res.send(dbRes[0])
+       })
+       .catch((err) => {
+        console.log(err)
+        res.send('sequelize error')
+       })
     }
 
 }

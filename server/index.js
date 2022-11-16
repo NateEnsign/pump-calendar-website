@@ -9,7 +9,7 @@ const app = express()
 app.use(cors())
 app.use(express.json())
 
-const {seed, addWorkout, getChestWorkouts, getLegsWorkouts, getBackWorkouts, getArmsWorkouts, getCoreWorkouts, getCardioWorkouts} = require('./controller')
+const {seed, addWorkout, getChestWorkouts, getLegsWorkouts, getBackWorkouts, getArmsWorkouts, getCoreWorkouts, getCardioWorkouts, deleteChestWorkout} = require('./controller')
 
 
 app.get('/', (req, res) => {
@@ -38,6 +38,9 @@ app.get('/backworkouts', getBackWorkouts)
 app.get('/armsworkouts', getArmsWorkouts)
 app.get('/coreworkouts', getCoreWorkouts)
 app.get('/cardioworkouts', getCardioWorkouts)
+
+app.delete('/workouts/:id', deleteChestWorkout)
+
 
 
 

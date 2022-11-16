@@ -10,6 +10,7 @@ const workoutCategory = document.getElementById("workout-category")
 const submitBtn = document.getElementById("submit-btn")
 const workoutList = document.getElementById("workout-list")
 
+
 function addWorkout(event) {
     event.preventDefault()
     if (workoutName.value < 1) {
@@ -38,9 +39,10 @@ function getChestWorkouts(){
     axios.get('http://localhost:4031/chestworkouts')
     .then(res => {
         res.data.forEach(elem => {
+            console.log(elem)
             let workoutCard = `<div class="workout-card">
                 <h2>${elem.name}</h2>
-                <button onclick="deleteCard(${elem['workouts_id']})">Delete</button>
+                <button onclick="deleteChestWorkout(${elem['id']})">Delete</button>
                 </div>
             `
 
@@ -130,6 +132,12 @@ function getCardioWorkouts(){
     })
 }
 
+function deleteChestWorkout(id) {
+    axios.delete(`http://localhost:4031/workouts/${id}`)
+        .then(() => getChestWorkouts())
+        .catch(err => console.log(err))
+}
+
 
 
 
@@ -141,4 +149,6 @@ armsBtn.addEventListener('click', getArmsWorkouts)
 coreBtn.addEventListener('click', getCoreWorkouts)
 cardioBtn.addEventListener('click', getCardioWorkouts)
 theForm.addEventListener('submit', addWorkout)
+
+
 
