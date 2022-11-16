@@ -8,11 +8,10 @@ const theForm = document.getElementById("submit-form")
 const workoutName = document.getElementById("workout-name")
 const workoutCategory = document.getElementById("workout-category")
 const submitBtn = document.getElementById("submit-btn")
-const workoutDisplay = document.getElementById("workout-display")
+const workoutList = document.getElementById("workout-list")
 
 function addWorkout(event) {
     event.preventDefault()
-
     if (workoutName.value < 1) {
         alert ('You must enter a name for new workout')
         return
@@ -33,6 +32,24 @@ function addWorkout(event) {
     workoutName.value= ''
     workoutCategory.value= ''
 }
+
+function getChestWorkouts(){
+    workoutList.innerHTML = ''
+    axios.get('http://localhost:4031/chestworkouts')
+    .then(res => {
+        res.data.forEach(elem => {
+            let workoutCard = `<div class="workout-card">
+                <h2>${elem.name}</h2>
+                <button onclick="deleteCard(${elem['workouts_id']})">Delete</button>
+                </div>
+            `
+
+            workoutList.innerHTML += workoutCard
+        })
+    })
+}
+
+
 
 
 // function getLegsWorkouts() {
@@ -57,7 +74,7 @@ function addWorkout(event) {
 
 
 
-// chestBtn.addEventListener('click', getChestWorkouts)
+chestBtn.addEventListener('click', getChestWorkouts)
 // legsBtn.addEventListener('click', getLegsWorkouts)
 // backBtn.addEventListener('click', getBackWorkouts)
 // armsBtn.addEventListener('click', getArmsWorkouts)

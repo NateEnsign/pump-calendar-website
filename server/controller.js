@@ -74,12 +74,17 @@ module.exports = {
         .catch(err => console.log('Error submitting workout', err))
     },
 
-//     getChestWorkouts: (req, res) => {
-//         sequelize.query(`
-//             SELECT name FROM workouts WHERE category = 'Chest';
-//         `)
-//     }
-
+    getChestWorkouts: (req, res) => {
+        sequelize.query(`
+            SELECT name FROM workouts WHERE category = 'chest';
+        `)
+        .then((dbRes) => {
+            res.status(200).send(dbRes[0])
+        })
+        .catch((err) => {
+            console.log(err)
+        })
+    }
 
 }
 
