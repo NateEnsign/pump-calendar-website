@@ -9,7 +9,7 @@ const app = express()
 app.use(cors())
 app.use(express.json())
 
-const {seed, addWorkout, getChestWorkouts} = require('./controller')
+const {seed, addWorkout, getChestWorkouts, getLegsWorkouts, getBackWorkouts, getArmsWorkouts, getCoreWorkouts, getCardioWorkouts} = require('./controller')
 
 
 app.get('/', (req, res) => {
@@ -33,6 +33,12 @@ app.get('/createcss', (req, res) => {
 app.post('/seed', seed)
 app.post('/workouts', addWorkout)
 app.get('/chestworkouts', getChestWorkouts)
+app.get('/legsworkouts', getLegsWorkouts)
+app.get('/backworkouts', getBackWorkouts)
+app.get('/armsworkouts', getArmsWorkouts)
+app.get('/coreworkouts', getCoreWorkouts)
+app.get('/cardioworkouts', getCardioWorkouts)
+
 
 
 app.listen(PORT, () => {console.log('listening on port' + PORT)})

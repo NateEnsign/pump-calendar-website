@@ -50,35 +50,95 @@ function getChestWorkouts(){
 }
 
 
+function getLegsWorkouts(){
+    workoutList.innerHTML = ''
+    axios.get('http://localhost:4031/legsworkouts')
+    .then(res => {
+        res.data.forEach(elem => {
+            let workoutCard = `<div class="workout-card">
+                <h2>${elem.name}</h2>
+                <button onclick="deleteCard(${elem['workouts_id']})">Delete</button>
+                </div>
+            `
+
+            workoutList.innerHTML += workoutCard
+        })
+    })
+}
+
+function getBackWorkouts(){
+    workoutList.innerHTML = ''
+    axios.get('http://localhost:4031/backworkouts')
+    .then(res => {
+        res.data.forEach(elem => {
+            let workoutCard = `<div class="workout-card">
+                <h2>${elem.name}</h2>
+                <button onclick="deleteCard(${elem['workouts_id']})">Delete</button>
+                </div>
+            `
+
+            workoutList.innerHTML += workoutCard
+        })
+    })
+}
+
+function getArmsWorkouts(){
+    workoutList.innerHTML = ''
+    axios.get('http://localhost:4031/armsworkouts')
+    .then(res => {
+        res.data.forEach(elem => {
+            let workoutCard = `<div class="workout-card">
+                <h2>${elem.name}</h2>
+                <button onclick="deleteCard(${elem['workouts_id']})">Delete</button>
+                </div>
+            `
+
+            workoutList.innerHTML += workoutCard
+        })
+    })
+}
+
+function getCoreWorkouts(){
+    workoutList.innerHTML = ''
+    axios.get('http://localhost:4031/coreworkouts')
+    .then(res => {
+        res.data.forEach(elem => {
+            let workoutCard = `<div class="workout-card">
+                <h2>${elem.name}</h2>
+                <button onclick="deleteCard(${elem['workouts_id']})">Delete</button>
+                </div>
+            `
+
+            workoutList.innerHTML += workoutCard
+        })
+    })
+}
+
+function getCardioWorkouts(){
+    workoutList.innerHTML = ''
+    axios.get('http://localhost:4031/cardioworkouts')
+    .then(res => {
+        res.data.forEach(elem => {
+            let workoutCard = `<div class="workout-card">
+                <h2>${elem.name}</h2>
+                <button onclick="deleteCard(${elem['workouts_id']})">Delete</button>
+                </div>
+            `
+
+            workoutList.innerHTML += workoutCard
+        })
+    })
+}
 
 
-// function getLegsWorkouts() {
-
-// }
-
-// function getBackWorkouts() {
-
-// }
-
-// function getArmsWorkouts() {
-
-// }
-
-// function getCoreWorkouts() {
-
-// }
-
-// function getCardioWorkouts() {
-
-// }
 
 
 
 chestBtn.addEventListener('click', getChestWorkouts)
-// legsBtn.addEventListener('click', getLegsWorkouts)
-// backBtn.addEventListener('click', getBackWorkouts)
-// armsBtn.addEventListener('click', getArmsWorkouts)
-// coreBtn.addEventListener('click', getCoreWorkouts)
-// cardioBtn.addEventListener('click', getCardioWorkouts)
+legsBtn.addEventListener('click', getLegsWorkouts)
+backBtn.addEventListener('click', getBackWorkouts)
+armsBtn.addEventListener('click', getArmsWorkouts)
+coreBtn.addEventListener('click', getCoreWorkouts)
+cardioBtn.addEventListener('click', getCardioWorkouts)
 theForm.addEventListener('submit', addWorkout)
 

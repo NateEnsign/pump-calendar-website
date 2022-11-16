@@ -84,6 +84,66 @@ module.exports = {
         .catch((err) => {
             console.log(err)
         })
+    },
+
+    getLegsWorkouts: (req, res) => {
+        sequelize.query(`
+            SELECT name FROM workouts WHERE category = 'legs';
+        `)
+        .then((dbRes) => {
+            res.status(200).send(dbRes[0])
+        })
+        .catch((err) => {
+            console.log(err)
+        })
+    },
+
+    getBackWorkouts: (req, res) => {
+        sequelize.query(`
+            SELECT name FROM workouts WHERE category = 'back';
+        `)
+        .then((dbRes) => {
+            res.status(200).send(dbRes[0])
+        })
+        .catch((err) => {
+            console.log(err)
+        })
+    },
+
+    getArmsWorkouts: (req, res) => {
+        sequelize.query(`
+            SELECT name FROM workouts WHERE category = 'arms';
+        `)
+        .then((dbRes) => {
+            res.status(200).send(dbRes[0])
+        })
+        .catch((err) => {
+            console.log(err)
+        })
+    },
+
+    getCoreWorkouts: (req, res) => {
+        sequelize.query(`
+            SELECT name FROM workouts WHERE category = 'core';
+        `)
+        .then((dbRes) => {
+            res.status(200).send(dbRes[0])
+        })
+        .catch((err) => {
+            console.log(err)
+        })
+    },
+
+    getCardioWorkouts: (req, res) => {
+        sequelize.query(`
+            SELECT name FROM workouts WHERE category = 'cardio';
+        `)
+        .then((dbRes) => {
+            res.status(200).send(dbRes[0])
+        })
+        .catch((err) => {
+            console.log(err)
+        })
     }
 
 }
