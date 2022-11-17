@@ -59,7 +59,7 @@ function getLegsWorkouts(){
         res.data.forEach(elem => {
             let workoutCard = `<div class="workout-card">
                 <h2>${elem.name}</h2>
-                <button onclick="deleteCard(${elem['workouts_id']})">Delete</button>
+                <button onclick="deleteLegsWorkout(${elem['id']})">Delete</button>
                 </div>
             `
 
@@ -75,7 +75,7 @@ function getBackWorkouts(){
         res.data.forEach(elem => {
             let workoutCard = `<div class="workout-card">
                 <h2>${elem.name}</h2>
-                <button onclick="deleteCard(${elem['workouts_id']})">Delete</button>
+                <button onclick="deleteBackWorkout(${elem['id']})">Delete</button>
                 </div>
             `
 
@@ -91,7 +91,7 @@ function getArmsWorkouts(){
         res.data.forEach(elem => {
             let workoutCard = `<div class="workout-card">
                 <h2>${elem.name}</h2>
-                <button onclick="deleteCard(${elem['workouts_id']})">Delete</button>
+                <button onclick="deleteArmsWorkout(${elem['id']})">Delete</button>
                 </div>
             `
 
@@ -107,7 +107,7 @@ function getCoreWorkouts(){
         res.data.forEach(elem => {
             let workoutCard = `<div class="workout-card">
                 <h2>${elem.name}</h2>
-                <button onclick="deleteCard(${elem['workouts_id']})">Delete</button>
+                <button onclick="deleteCoreWorkout(${elem['id']})">Delete</button>
                 </div>
             `
 
@@ -123,7 +123,7 @@ function getCardioWorkouts(){
         res.data.forEach(elem => {
             let workoutCard = `<div class="workout-card">
                 <h2>${elem.name}</h2>
-                <button onclick="deleteCard(${elem['workouts_id']})">Delete</button>
+                <button onclick="deleteCardioWorkout(${elem['id']})">Delete</button>
                 </div>
             `
 
@@ -133,8 +133,38 @@ function getCardioWorkouts(){
 }
 
 function deleteChestWorkout(id) {
-    axios.delete(`http://localhost:4031/workouts/${id}`)
+    axios.delete(`http://localhost:4031/deletechestworkouts/${id}`)
         .then(() => getChestWorkouts())
+        .catch(err => console.log(err))
+}
+
+function deleteLegsWorkout(id) {
+    axios.delete(`http://localhost:4031/deletelegsworkouts/${id}`)
+        .then(() => getLegsWorkouts())
+        .catch(err => console.log(err))
+}
+
+function deleteBackWorkout(id) {
+    axios.delete(`http://localhost:4031/deletebackworkouts/${id}`)
+        .then(() => getBackWorkouts())
+        .catch(err => console.log(err))
+}
+
+function deleteArmsWorkout(id) {
+    axios.delete(`http://localhost:4031/deletearmsworkouts/${id}`)
+        .then(() => getArmsWorkouts())
+        .catch(err => console.log(err))
+}
+
+function deleteCoreWorkout(id) {
+    axios.delete(`http://localhost:4031/deletecoreworkouts/${id}`)
+        .then(() => getCoreWorkouts())
+        .catch(err => console.log(err))
+}
+
+function deleteCardioWorkout(id) {
+    axios.delete(`http://localhost:4031/deletecardioworkouts/${id}`)
+        .then(() => getCardioWorkouts())
         .catch(err => console.log(err))
 }
 

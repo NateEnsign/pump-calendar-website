@@ -88,7 +88,7 @@ module.exports = {
 
     getLegsWorkouts: (req, res) => {
         sequelize.query(`
-            SELECT name FROM workouts WHERE category = 'legs';
+            SELECT name,id FROM workouts WHERE category = 'legs';
         `)
         .then((dbRes) => {
             res.status(200).send(dbRes[0])
@@ -100,7 +100,7 @@ module.exports = {
 
     getBackWorkouts: (req, res) => {
         sequelize.query(`
-            SELECT name FROM workouts WHERE category = 'back';
+            SELECT name,id FROM workouts WHERE category = 'back';
         `)
         .then((dbRes) => {
             res.status(200).send(dbRes[0])
@@ -112,7 +112,7 @@ module.exports = {
 
     getArmsWorkouts: (req, res) => {
         sequelize.query(`
-            SELECT name FROM workouts WHERE category = 'arms';
+            SELECT name,id FROM workouts WHERE category = 'arms';
         `)
         .then((dbRes) => {
             res.status(200).send(dbRes[0])
@@ -124,7 +124,7 @@ module.exports = {
 
     getCoreWorkouts: (req, res) => {
         sequelize.query(`
-            SELECT name FROM workouts WHERE category = 'core';
+            SELECT name,id FROM workouts WHERE category = 'core';
         `)
         .then((dbRes) => {
             res.status(200).send(dbRes[0])
@@ -136,7 +136,7 @@ module.exports = {
 
     getCardioWorkouts: (req, res) => {
         sequelize.query(`
-            SELECT name FROM workouts WHERE category = 'cardio';
+            SELECT name,id FROM workouts WHERE category = 'cardio';
         `)
         .then((dbRes) => {
             res.status(200).send(dbRes[0])
@@ -150,7 +150,82 @@ module.exports = {
         const {id} = req.params
         sequelize.query (`
             DELETE FROM workouts
-            WHERE id = ${id}
+            WHERE id = ${id};
+        `)
+        .then((dbRes) => {
+            res.send(dbRes[0])
+       })
+       .catch((err) => {
+        console.log(err)
+        res.send('sequelize error')
+       })
+    },
+
+    deleteLegsWorkout: (req, res) => {
+        const {id} = req.params
+        sequelize.query (`
+            DELETE FROM workouts
+            WHERE id = ${id};
+        `)
+        .then((dbRes) => {
+            res.send(dbRes[0])
+       })
+       .catch((err) => {
+        console.log(err)
+        res.send('sequelize error')
+       })
+    },
+
+    deleteBackWorkout: (req, res) => {
+        const {id} = req.params
+        sequelize.query (`
+            DELETE FROM workouts
+            WHERE id = ${id};
+        `)
+        .then((dbRes) => {
+            res.send(dbRes[0])
+       })
+       .catch((err) => {
+        console.log(err)
+        res.send('sequelize error')
+       })
+    },
+
+    deleteArmsWorkout: (req, res) => {
+        const {id} = req.params
+        sequelize.query (`
+            DELETE FROM workouts
+            WHERE id = ${id};
+        `)
+        .then((dbRes) => {
+            res.send(dbRes[0])
+       })
+       .catch((err) => {
+        console.log(err)
+        res.send('sequelize error')
+       })
+    },
+
+    deleteCoreWorkout: (req, res) => {
+        const {id} = req.params
+        sequelize.query (`
+            DELETE FROM workouts
+            WHERE id = ${id};
+        `)
+        .then((dbRes) => {
+            res.send(dbRes[0])
+       })
+       .catch((err) => {
+        console.log(err)
+        res.send('sequelize error')
+       })
+    },
+
+    deleteCardioWorkout: (req, res) => {
+        const {id} = req.params
+        sequelize.query (`
+            DELETE FROM workouts
+            WHERE id = ${id};
         `)
         .then((dbRes) => {
             res.send(dbRes[0])
