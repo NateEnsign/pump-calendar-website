@@ -16,6 +16,7 @@ function addWorkout(event) {
     if (workoutName.value < 1) {
         alert ('You must enter a name for new workout')
         return
+    
     }
 
     let bodyObj = {
@@ -25,7 +26,8 @@ function addWorkout(event) {
 
     axios.post('/workouts', bodyObj)
     .then(() => {
-        alert(bodyObj.workoutName + ' has been added to workouts!')
+        // alert(bodyObj.workoutName + ' has been added to workouts!')
+        Swal.fire(bodyObj.workoutName + ' has been added to workouts!')
     })
     .catch((error) => {
         console.log(error)
@@ -42,6 +44,22 @@ function getChestWorkouts(){
             console.log(elem)
             let workoutCard = `<div class="workout-card">
                 <h2>${elem.name}</h2>
+                
+                <form id="add-form">
+                <label for="add-form">Add to Schedule:</label>
+                    <select name="weekday" id="weekday">
+                    <option value="" disabled selected>Select Weekday</option>
+                    <option value="Monday">Monday</option>
+                    <option value="Tuesday">Tuesday</option>
+                    <option value="Wednesday">Wednesday</option>
+                    <option value="Thursday">Thursday</option>
+                    <option value="Friday">Friday</option>
+                    <option value="Saturday">Saturday</option>
+                    <option value="Sunday">Sunday</option>
+                    </select>
+                    <button class="add-btn">Add</button>
+                </form>
+
                 <button class="delete-btn" onclick="deleteChestWorkout(${elem['id']})">Delete</button>
                 </div>
             `

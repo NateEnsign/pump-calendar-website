@@ -121,7 +121,7 @@ select {
 }
 
 .workout-card {
-  display: flex;
+  display: flexbox;
   justify-content: center;
   border: 3px solid black;
   margin: 10px;
@@ -131,6 +131,8 @@ select {
 
 .delete-btn {
   background-color: #626a92;
+  display: flex;
+  justify-items: right;
 }
 
 .delete-btn:hover {
