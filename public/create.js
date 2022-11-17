@@ -42,7 +42,7 @@ function getChestWorkouts(){
             console.log(elem)
             let workoutCard = `<div class="workout-card">
                 <h2>${elem.name}</h2>
-                <button onclick="deleteChestWorkout(${elem['id']})">Delete</button>
+                <button class="delete-btn" onclick="deleteChestWorkout(${elem['id']})">Delete</button>
                 </div>
             `
 
@@ -59,7 +59,7 @@ function getLegsWorkouts(){
         res.data.forEach(elem => {
             let workoutCard = `<div class="workout-card">
                 <h2>${elem.name}</h2>
-                <button onclick="deleteLegsWorkout(${elem['id']})">Delete</button>
+                <button class="delete-btn" onclick="deleteLegsWorkout(${elem['id']})">Delete</button>
                 </div>
             `
 
@@ -75,7 +75,7 @@ function getBackWorkouts(){
         res.data.forEach(elem => {
             let workoutCard = `<div class="workout-card">
                 <h2>${elem.name}</h2>
-                <button onclick="deleteBackWorkout(${elem['id']})">Delete</button>
+                <button class="delete-btn" onclick="deleteBackWorkout(${elem['id']})">Delete</button>
                 </div>
             `
 
@@ -91,7 +91,7 @@ function getArmsWorkouts(){
         res.data.forEach(elem => {
             let workoutCard = `<div class="workout-card">
                 <h2>${elem.name}</h2>
-                <button onclick="deleteArmsWorkout(${elem['id']})">Delete</button>
+                <button class="delete-btn" onclick="deleteArmsWorkout(${elem['id']})">Delete</button>
                 </div>
             `
 
@@ -107,7 +107,7 @@ function getCoreWorkouts(){
         res.data.forEach(elem => {
             let workoutCard = `<div class="workout-card">
                 <h2>${elem.name}</h2>
-                <button onclick="deleteCoreWorkout(${elem['id']})">Delete</button>
+                <button class="delete-btn" onclick="deleteCoreWorkout(${elem['id']})">Delete</button>
                 </div>
             `
 
@@ -123,7 +123,7 @@ function getCardioWorkouts(){
         res.data.forEach(elem => {
             let workoutCard = `<div class="workout-card">
                 <h2>${elem.name}</h2>
-                <button onclick="deleteCardioWorkout(${elem['id']})">Delete</button>
+                <button class="delete-btn" onclick="deleteCardioWorkout(${elem['id']})">Delete</button>
                 </div>
             `
 

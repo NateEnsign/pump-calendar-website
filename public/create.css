@@ -69,7 +69,7 @@ h1 {
   }
   
   .btn-group button:hover {
-    background-color: #626a92;
+    background-color: #1d2557;
   }
 
 h3 {
@@ -121,11 +121,20 @@ select {
 }
 
 .workout-card {
-  display: flexbox;
-  flex-direction: row;
+  display: flex;
+  justify-content: center;
   border: 3px solid black;
   margin: 10px;
+  background-color: #7a85a1;
+  color: #2e2423;
+}
 
+.delete-btn {
+  background-color: #626a92;
+}
+
+.delete-btn:hover {
+    background-color: #914c3e;
 }
 
 
